@@ -63,3 +63,9 @@ body {
   max-width: 1100px;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 1150px) {
+  .wrapper {
+    padding: 2rem;
+  }
+}
