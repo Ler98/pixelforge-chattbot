@@ -4,7 +4,7 @@ import { ProductCard } from '@pixelforge/productcard';
 import './index.css';
 
 export const LandingFeaturedProducts = () => {
-    const featuredProducts = products.filter(product => product.featured);
+    const featuredProducts = products.filter(product => product.featured).slice(0, 6);
 
     return (
         <section className="landing-featured wrapper">

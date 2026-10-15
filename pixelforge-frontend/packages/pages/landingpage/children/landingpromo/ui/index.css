@@ -93,6 +93,12 @@
     }
 }
 
+@media screen and (max-width: 1150px) {
+  .landing-promo {
+    padding: 2rem;
+  }
+}
+
 @media (max-width: 640px) {
     .landing-promo {
         min-height: 28rem;

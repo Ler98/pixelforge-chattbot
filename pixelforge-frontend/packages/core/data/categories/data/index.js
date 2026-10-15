@@ -1,10 +1,14 @@
 import {
     MonitorCog,
+    CircuitBoard,
     Cpu,
     Monitor,
     Keyboard,
     Mouse,
-    Headphones
+    Headphones,
+    MemoryStick,
+    HardDrive,
+    Microchip
 } from 'lucide-react';
 
 export const categories = [
@@ -15,9 +19,15 @@ export const categories = [
         icon: MonitorCog
     },
     {
-        name: 'Components',
-        slug: 'components',
-        description: 'GPUs, CPUs & more',
+        name: 'Graphics Cards',
+        slug: 'graphics-cards',
+        description: 'Next-gen graphics performance',
+        icon: CircuitBoard
+    },
+    {
+        name: 'Processors',
+        slug: 'processors',
+        description: 'Powerful CPUs for every build',
         icon: Cpu
     },
     {
@@ -43,5 +53,23 @@ export const categories = [
         slug: 'headsets',
         description: 'Immersive audio',
         icon: Headphones
+    },
+    {
+        name: 'Motherboards',
+        slug: 'motherboards',
+        description: 'The foundation of your build',
+        icon: Microchip
+    },
+    {
+        name: 'Memory',
+        slug: 'memory',
+        description: 'High-speed RAM',
+        icon: MemoryStick
+    },
+    {
+        name: 'Storage',
+        slug: 'storage',
+        description: 'Fast SSDs and storage solutions',
+        icon: HardDrive
     }
 ];
