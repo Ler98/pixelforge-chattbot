@@ -1,10 +1,26 @@
 import { Link } from 'react-router-dom';
-import { products } from '@pixelforge/products';
+import { useQuery } from '@tanstack/react-query';
 import { ProductCard } from '@pixelforge/productcard';
+import { fetchProducts } from '@pixelforge/api';
 import './index.css';
 
 export const LandingPopularProducts = () => {
-    const popularProducts = products.filter(product => product.popular).slice(0, 8);
+    const {
+        data: products = [],
+        isPending,
+        isError,
+        error
+    } = useQuery({
+        queryKey: ['products'],
+        queryFn: fetchProducts
+    });
+
+    const popularProducts = products
+        .filter(product => product.popular)
+        .slice(0, 8);
+
+    if (isPending) return <p>Loading products...</p>;
+    if (isError) return <p>{error.message}</p>;
 
     return (
         <section className="landing-popular wrapper">
@@ -29,14 +45,12 @@ export const LandingPopularProducts = () => {
             </div>
 
             <div className="landing-popular__products">
-                {
-                    popularProducts.map(product => (
-                        <ProductCard
-                            key={ product.id }
-                            product={ product }
-                        />
-                    ))
-                }
+                {popularProducts.map(product => (
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                    />
+                ))}
             </div>
         </section>
     );
