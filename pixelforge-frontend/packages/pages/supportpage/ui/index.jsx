@@ -1,7 +1,5 @@
-
 import './index.css';
 
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Truck,
@@ -16,7 +14,8 @@ import {
     MessageSquare,
     Bot
 } from 'lucide-react';
-
+import { useQuery } from '@tanstack/react-query';
+import { fetchDocuments } from '@pixelforge/api';
 import { Icon } from '@pixelforge/icon';
 
 const supportCategories = [
@@ -53,48 +52,15 @@ const supportCategories = [
 ];
 
 export const SupportPage = () => {
-    const [documents, setDocuments] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const controller = new AbortController();
-
-        const fetchDocuments = async () => {
-            try {
-                const response = await fetch(
-                    'https://santosnr6.github.io/Data/pixelforgedocuments.json',
-                    { signal: controller.signal }
-                );
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch documents');
-                }
-
-                const data = await response.json();
-
-                if (!Array.isArray(data)) {
-                    throw new Error('Invalid document data');
-                }
-
-                if (!controller.signal.aborted) {
-                    setDocuments(data);
-                }
-            } catch (err) {
-                if (err.name !== 'AbortError') {
-                    setError(err.message);
-                }
-            } finally {
-                if (!controller.signal.aborted) {
-                    setLoading(false);
-                }
-            }
-        };
-
-        fetchDocuments();
-
-        return () => controller.abort();
-    }, []);
+    const {
+        data: documents = [],
+        isPending,
+        isError,
+        error
+    } = useQuery({
+        queryKey: ['documents'],
+        queryFn: fetchDocuments
+    });
 
     return (
         <main className="support-page">
@@ -110,19 +76,19 @@ export const SupportPage = () => {
             <section className="support-page__content wrapper">
                 <h2>Browse support topics</h2>
 
-                {loading && (
+                {isPending && (
                     <p className="support-page__status">
                         Loading support articles...
                     </p>
                 )}
 
-                {error && (
+                {isError && (
                     <p className="support-page__status" role="alert">
-                        Could not load support articles: {error}
+                        Could not load support articles: {error.message}
                     </p>
                 )}
 
-                {!loading && !error && (
+                {!isPending && !isError && (
                     <div className="support-page__categories">
                         {supportCategories.map(category => {
                             const categoryDocuments = documents.filter(

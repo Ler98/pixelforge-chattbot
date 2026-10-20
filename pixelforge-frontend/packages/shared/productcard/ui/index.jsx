@@ -1,7 +1,10 @@
 import { Button } from '@pixelforge/button';
+import { useCartStore } from '@pixelforge/usecartstore';
 import './index.css';
 
 export const ProductCard = ({ product }) => {
+    const addToCart = useCartStore((state) => state.addToCart);
+
     const {
         name,
         brand,
@@ -111,10 +114,14 @@ export const ProductCard = ({ product }) => {
                 </p>
 
                 <footer className="product-card__footer">
-                    <Button 
-                        text="Add to cart"
+                    <Button
+                        text={stock === 0 ? 'Out of stock' : 'Add to cart'}
                         type="regular"
-                        onClick={() => console.log('Add to cart!') }
+                        onClick={() => {
+                            if (stock > 0) {
+                                addToCart(product);
+                            }
+                        }}
                     />
                 </footer>
             </section>

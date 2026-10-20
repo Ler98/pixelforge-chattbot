@@ -3,6 +3,8 @@
     gap: .5rem;
     align-items: center;
     cursor: pointer;
+    color: var(--color-text-primary);
+    text-decoration: none;
 
     .brand__logo {
         background-color: var(--color-brand);
