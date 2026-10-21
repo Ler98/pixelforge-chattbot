@@ -1,5 +1,7 @@
 # Examination – PixelForge AI-assistent
 
+[Inspelad genomgång av examination](https://funet.sharepoint.com/:v:/s/FrontendutvecklareYH-Fe25/IQBvujGtPaW3SLj-tnrMc05eATCz-uoDf7Nz0_AY6tPXO64?e=C8iRda)
+
 ## Projektbeskrivning
 
 PixelForge är en e-handelsplattform för teknikprodukter som vill förbättra sin kundservice med hjälp av en AI-driven chatbot. Du har fått en befintlig frontend och en förberedd backend som utgångspunkt. Din uppgift är att utveckla och integrera en chatbot som hjälper kunder att hitta produkter och få svar på frågor om butikens villkor och support.
