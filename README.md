@@ -21,11 +21,23 @@ Chatbotten ska:
 Utgå från de tillhandahållna projekten:
 
 - [pixelforge-frontend](./pixelforge-frontend/README.md) – installation, komponenter, package-arkitektur och frontendens funktioner.
-- [pixelforge-backend](./pixelforge-backend/README.md) – installation, miljövariabler, Ollama, Supabase och seed-script.
+- [pixelforge-backend](./pixelforge-backend/README-backend.md) – installation, miljövariabler, Ollama, Supabase och seed-script.
 
 Använd **React**, **Node.js/Express**, **LangChain.js**, **Ollama**, **Supabase** och kursens tekniker för **RAG och tools**.
 
 Du får själv välja om du bygger chatbotens AI-logik i frontend eller backend, men **backend rekommenderas**. All kommunikation med Supabase som kräver hemliga nycklar ska ske i backend. Lägg aldrig Supabase-nycklar eller andra hemligheter i frontendkod eller i ett publikt GitHub-repository.
+
+## Resurser
+
+**Produkt-API**
+
+För att chatbotten ska kunna söka efter och hämta information om butikens produkter finns ett färdigt API tillgängligt:
+
+- [PixelForge – Produkt-API](https://santosnr6.github.io/Data/pixelforgeproducts.json)
+
+API:et returnerar en JSON-array med butikens produkter och information om bland annat namn, pris, kategori och lagerstatus.
+
+Du ska använda detta API för att implementera de tools som chatbotten behöver för att kunna besvara produktrelaterade frågor.
 
 ## Betygskriterier
 
