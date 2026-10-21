@@ -31,9 +31,12 @@ Du får själv välja om du bygger chatbotens AI-logik i frontend eller backend,
 
 **Produkt-API**
 
-För att chatbotten ska kunna söka efter och hämta information om butikens produkter finns ett färdigt API tillgängligt:
+För att chatbotten ska kunna söka efter och hämta information om butikens produkter finns följande API tillgängligt:
 
-- [PixelForge – Produkt-API](https://santosnr6.github.io/Data/pixelforgeproducts.json)
+
+```
+GET https://santosnr6.github.io/Data/pixelforgeproducts.json
+```
 
 API:et returnerar en JSON-array med butikens produkter och information om bland annat namn, pris, kategori och lagerstatus.
 
