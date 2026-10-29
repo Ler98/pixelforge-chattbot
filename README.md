@@ -44,6 +44,15 @@ cd pixelforge-frontend
 npm install
 ```
 
+### Ollama och AI-modeller
+
+Installera [Ollama](https://ollama.com/) och ladda ner de modeller som projektet använder:
+
+```
+ollama pull qwen2.5:3b
+ollama pull nomic-embed-text
+```
+
 ### 3. Konfigurera miljövariabler
 
 Skapa en `.env`-fil i den mapp där backend förväntar sig den. Fyll i de miljövariabler som krävs för anslutningen till Supabase och eventuell annan konfiguration.
